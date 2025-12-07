@@ -1,5 +1,4 @@
 # Pimp Your Grill
-# Prunescu Allysia Georgiana
 
 ## Descrierea aplicației
 
@@ -104,3 +103,4 @@ Backend rulează pe: http://localhost:3001
 -   Modaluri, carduri, componente reutilizabile
 -   Integrare completă frontend-backend
 -   Adaptare UI după design Figma
+**Prunescu Allysia Georgiana**
