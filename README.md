@@ -4,10 +4,9 @@
 
 Pimp Your Grill este o aplicație web.
 Aplicația permite utilizatorilor să posteze grătare, să voteze cele mai
-bune grătare (sistem MIC -- like/unlike), să caute, să filtreze și să
-gestioneze grătarele proprii.
+bune grătare, să caute, să filtreze și să gestioneze grătarele proprii.
 
-Backend: Node.js + Express + MongoDB\
+Backend: Node.js + Express + MongoDB
 Frontend: React + Vite
 
 ## Instalare & Rulare
@@ -40,49 +39,49 @@ Backend rulează pe: http://localhost:3001
 
 ## Funcționalități implementate
 
-### ✔️ Homepage + Navbar + Footer
+### Homepage + Navbar + Footer
 
 -   Navbar dinamic (Login/Register sau Profile/Logout)
--   Responsive & functional
+-   Responsiv & funcțional
 
-### ✔️ Register & Login
+### Register & Login
 
 -   Validări la formular
--   Salvare token în localStorage
--   Redirect automat după înregistrare sau login
+-   Salvare token în LocalStorage
+-   Redirectare automată după înregistrare sau login
 -   Endpoint-uri:
     -   `POST /api/auth/register`
     -   `POST /api/auth/login`
     -   `GET /api/auth/me`
 
-### ✔️ Profile Page
+### Profile Page
 
 -   Afișare date utilizator
 -   Listare grătare proprii
 -   Adăugare grill
 
-### ✔️ Adding New Grill
+### Adding New Grill
 
 -   Form cu validări
 -   Persistență în DB
 -   Endpoint:
     -   `POST /api/grills`
 
-### ✔️ Best Grills Page
+### Best Grills Page
 
 -   Search după nume/descriere
 -   Sortare: cele mai noi / cele mai apreciate
 -   Leaderboard cu top 3/5 grătare
 -   Modal detalii grill
 
-### ✔️ MIC System (Like/Unlike)
+### MIC System (Like/Unlike)
 
 -   Toggle like/unlike
 -   Actualizare instant în UI
 -   Endpoint:
     -   `POST /api/grills/:id/like`
 
-### ✔️ Searching & Filtering
+### Searching & Filtering
 
 -   `GET /api/grills?q=term&sort=new|top`
 
