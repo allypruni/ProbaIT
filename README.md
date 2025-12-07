@@ -25,9 +25,7 @@ Frontend: React + Vite
 Creează un fișier `.env` în folderul backend:
 
     PORT=3001
-    MONGO_URI=mongodb://127.0.0.1:27017/pimp-your-grill
-    JWT_SECRET=supersecret123
-
+    
 ### 3. Frontend
 
     cd frontend
