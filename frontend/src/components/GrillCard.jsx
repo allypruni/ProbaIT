@@ -58,7 +58,14 @@ function GrillCard({
             {/* Imagine sau placeholder */}
             <div className="grill-card-image">
                 {imageUrl ? (
-                    <img src={imageUrl} alt={title} />
+                    <img 
+                        src={imageUrl} 
+                        alt={title}
+                        onError={(e) => {
+                            e.target.style.display = 'none';
+                            e.target.parentElement.innerHTML = '<div class="grill-card-placeholder">🔥</div>';
+                        }}
+                    />
                 ) : (
                     <div className="grill-card-placeholder">
                         🔥

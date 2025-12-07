@@ -1,4 +1,4 @@
-/* === Homepage – Figma style === */
+/* === Homepage – Centered Hero Card === */
 
 :root {
   --pg-brown: #4a1f0f;
@@ -9,9 +9,11 @@
 
 .home {
   min-height: calc(100vh - 70px);
-  background-color: var(--pg-bg);
+  background-color: transparent;
   display: flex;
   justify-content: center;
+  align-items: flex-start;
+  padding: 80px 20px 40px 20px;
 }
 
 .home-hero {
@@ -66,68 +68,74 @@
 /* Cardul central */
 .home-hero-center {
   text-align: center;
-  padding: 24px 32px;
-  background-color: #ffffff;
-  border-radius: 16px;
-  border: 3px solid var(--pg-brown-light);
-  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.08);
+  padding: 50px 60px;
+  background-color: #4A1F0F;
+  border-radius: 20px;
+  border: 4px solid #00000022;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  max-width: 800px;
+  width: 100%;
 }
 
 .home-title {
-  margin: 0 0 14px;
-  font-size: 40px;
+  margin: 0 0 24px;
+  font-size: 3rem;
   font-weight: 800;
   letter-spacing: 1px;
-  color: var(--pg-brown);
+  color: #ffffff;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 .home-subtitle {
-  margin: 0 auto 24px;
-  max-width: 520px;
-  font-size: 16px;
-  line-height: 1.6;
-  color: #444444;
+  margin: 0 auto 35px;
+  max-width: 650px;
+  font-size: 1.15rem;
+  line-height: 1.7;
+  color: #ffffff;
 }
 
 /* Butoane CTA */
 .home-cta-row {
   display: flex;
   justify-content: center;
-  gap: 16px;
+  gap: 20px;
   flex-wrap: wrap;
 }
 
 .home-cta-primary,
 .home-cta-secondary {
   text-decoration: none;
-  border-radius: 999px;
-  padding: 10px 24px;
-  font-size: 15px;
-  font-weight: 600;
-  border: 2px solid transparent;
-  transition: 0.2s ease;
+  border-radius: 12px;
+  padding: 14px 32px;
+  font-size: 1.05rem;
+  font-weight: 700;
+  border: 3px solid transparent;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
 .home-cta-primary {
-  background-color: var(--pg-orange);
-  color: var(--pg-brown);
-  border-color: var(--pg-orange);
+  background: linear-gradient(135deg, #ff9900 0%, #ff6600 100%);
+  color: #ffffff;
+  border-color: #ff9900;
 }
 
 .home-cta-primary:hover {
-  background-color: #ffffff;
-  color: var(--pg-brown);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(255, 153, 0, 0.4);
 }
 
 .home-cta-secondary {
-  background-color: #ffffff;
-  color: var(--pg-brown);
-  border-color: var(--pg-brown);
+  background-color: transparent;
+  color: #ffffff;
+  border-color: #ffffff;
 }
 
 .home-cta-secondary:hover {
-  background-color: var(--pg-brown);
-  color: #ffffff;
+  background-color: #ffffff;
+  color: #4A1F0F;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(255, 255, 255, 0.3);
 }
 
 /* Banda de jos cu contact + social */
@@ -169,23 +177,48 @@
 }
 
 /* RESPONSIVE */
-@media (max-width: 900px) {
-  .home-hero {
-    margin-inline: 16px;
+@media (max-width: 768px) {
+  .home {
+    padding: 20px 10px;
   }
 
-  .home-hero-content {
-    grid-template-columns: 1fr;
-    row-gap: 24px;
-    padding: 24px 20px 28px 20px;
-  }
-
-  .home-hero-illustrations-left,
-  .home-hero-illustrations-right {
-    flex-direction: row;
+  .home-hero-center {
+    padding: 35px 30px;
+    max-width: 100%;
   }
 
   .home-title {
-    font-size: 32px;
+    font-size: 2rem;
+    margin-bottom: 20px;
+  }
+
+  .home-subtitle {
+    font-size: 1rem;
+    margin-bottom: 28px;
+  }
+
+  .home-cta-row {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .home-cta-primary,
+  .home-cta-secondary {
+    width: 100%;
+    padding: 12px 24px;
+  }
+}
+
+@media (max-width: 480px) {
+  .home-hero-center {
+    padding: 30px 20px;
+  }
+
+  .home-title {
+    font-size: 1.75rem;
+  }
+
+  .home-subtitle {
+    font-size: 0.95rem;
   }
 }

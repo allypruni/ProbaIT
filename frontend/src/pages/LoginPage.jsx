@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
+import './LoginPage.css';
 
 function LoginPage() {
     const navigate = useNavigate();
@@ -58,88 +59,57 @@ function LoginPage() {
     const displayError = localError || error;
 
     return (
-        <div style={{ maxWidth: '400px', margin: '40px auto', padding: '20px' }}>
-            <h1>🔐 Autentificare</h1>
-            
-            <form onSubmit={handleSubmit}>
-                <div style={{ marginBottom: '15px' }}>
-                    <label htmlFor="email" style={{ display: 'block', marginBottom: '5px' }}>
-                        Email
-                    </label>
-                    <input
-                        type="email"
-                        id="email"
-                        name="email"
-                        placeholder="Adresa ta de email"
-                        value={formData.email}
-                        onChange={handleChange}
-                        disabled={loading}
-                        style={{ 
-                            width: '100%', 
-                            padding: '10px', 
-                            borderRadius: '4px',
-                            border: '1px solid #ccc'
-                        }}
-                    />
-                </div>
-
-                <div style={{ marginBottom: '15px' }}>
-                    <label htmlFor="password" style={{ display: 'block', marginBottom: '5px' }}>
-                        Parolă
-                    </label>
-                    <input
-                        type="password"
-                        id="password"
-                        name="password"
-                        placeholder="Parola ta"
-                        value={formData.password}
-                        onChange={handleChange}
-                        disabled={loading}
-                        style={{ 
-                            width: '100%', 
-                            padding: '10px', 
-                            borderRadius: '4px',
-                            border: '1px solid #ccc'
-                        }}
-                    />
-                </div>
-
-                {displayError && (
-                    <div style={{ 
-                        color: '#dc3545', 
-                        backgroundColor: '#f8d7da', 
-                        padding: '10px', 
-                        borderRadius: '4px',
-                        marginBottom: '15px'
-                    }}>
-                        {displayError}
+        <div className="auth-page">
+            <div className="auth-container">
+                <h1 className="auth-title">🔐 Autentificare</h1>
+                
+                <form onSubmit={handleSubmit} className="auth-form">
+                    <div className="form-group">
+                        <label htmlFor="email">Email</label>
+                        <input
+                            type="email"
+                            id="email"
+                            name="email"
+                            placeholder="Adresa ta de email"
+                            value={formData.email}
+                            onChange={handleChange}
+                            disabled={loading}
+                        />
                     </div>
-                )}
 
-                <button 
-                    type="submit" 
-                    disabled={loading}
-                    style={{ 
-                        width: '100%', 
-                        padding: '12px',
-                        backgroundColor: loading ? '#6c757d' : '#007bff',
-                        color: 'white',
-                        border: 'none',
-                        borderRadius: '4px',
-                        cursor: loading ? 'not-allowed' : 'pointer',
-                        fontSize: '16px'
-                    }}
-                >
-                    {loading ? 'Se autentifică...' : 'Intră în cont'}
-                </button>
-            </form>
+                    <div className="form-group">
+                        <label htmlFor="password">Parolă</label>
+                        <input
+                            type="password"
+                            id="password"
+                            name="password"
+                            placeholder="Parola ta"
+                            value={formData.password}
+                            onChange={handleChange}
+                            disabled={loading}
+                        />
+                    </div>
 
-            <p style={{ marginTop: '20px', textAlign: 'center' }}>
-                Nu ai cont?{' '}
-                <Link to="/register" style={{ color: '#007bff' }}>
-                    Înregistrează-te
-                </Link>
-            </p>
+                    {displayError && (
+                        <div className="auth-error">
+                            {displayError}
+                        </div>
+                    )}
+
+                    <button 
+                        type="submit" 
+                        disabled={loading}
+                        className="auth-submit"
+                    >
+                        {loading ? 'Se autentifică...' : 'Intră în cont'}
+                    </button>
+                </form>
+
+                <p className="auth-link">
+                    Nu ai cont?{' '}
+                    <Link to="/register">Înregistrează-te</Link>
+                </p>
+            </div>
         </div>
     );
 }

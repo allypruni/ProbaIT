@@ -1,0 +1,398 @@
+/* ============================================
+   Grill Details Modal - Figma-Inspired Design
+   ============================================ */
+
+/* Overlay - fond semi-transparent (40% negru) */
+.grill-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    padding: 20px;
+    animation: fadeIn 0.2s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* Panel central - container principal */
+.grill-modal-panel {
+    position: relative;
+    background: white;
+    border-radius: 16px;
+    width: 960px;
+    max-width: 90vw;
+    max-height: 90vh;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+    animation: slideUp 0.3s ease-out;
+}
+
+@keyframes slideUp {
+    from {
+        transform: translateY(30px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Buton X de închidere - poziționat sus-dreapta în panel */
+.grill-modal-close {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    width: 40px;
+    height: 40px;
+    background: rgba(255, 255, 255, 0.95);
+    border: none;
+    border-radius: 50%;
+    font-size: 28px;
+    line-height: 1;
+    color: #333;
+    cursor: pointer;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.grill-modal-close:hover {
+    background: #ff6600;
+    color: white;
+    transform: rotate(90deg);
+    box-shadow: 0 4px 12px rgba(255, 102, 0, 0.4);
+}
+
+/* Layout cu două coloane */
+.grill-modal-content {
+    display: flex;
+    height: 100%;
+    max-height: 90vh;
+}
+
+/* Coloana stângă - Imagine */
+.grill-modal-left {
+    flex: 0 0 45%;
+    background: #f5f5f5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.grill-modal-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.grill-modal-placeholder {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+}
+
+.placeholder-icon {
+    font-size: 120px;
+    opacity: 0.6;
+}
+
+/* Coloana dreaptă - Conținut */
+.grill-modal-right {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 40px;
+    overflow-y: auto;
+}
+
+/* Titlu - bold, mare, similar H1 */
+.grill-modal-title {
+    margin: 0 0 24px 0;
+    font-size: 2rem;
+    font-weight: 700;
+    color: #333;
+    line-height: 1.3;
+}
+
+/* Zona de informații - deasupra descrierii */
+.grill-modal-info {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 28px;
+    padding: 20px;
+    background: #f8f9fa;
+    border-radius: 12px;
+    border-left: 4px solid #ff9900;
+}
+
+.grill-info-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.info-icon {
+    font-size: 1.2rem;
+    min-width: 24px;
+    text-align: center;
+}
+
+.info-text {
+    font-size: 0.95rem;
+    color: #555;
+    font-weight: 500;
+}
+
+.info-highlight {
+    color: #ff9900;
+    font-weight: 700;
+    font-size: 1.05rem;
+}
+
+/* Secțiune descriere */
+.grill-modal-description {
+    flex: 1;
+    margin-bottom: 24px;
+}
+
+.description-label {
+    margin: 0 0 12px 0;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #333;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.description-text {
+    max-height: 200px;
+    overflow-y: auto;
+    padding: 16px;
+    background: white;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    color: #555;
+    line-height: 1.7;
+    font-size: 0.95rem;
+}
+
+/* Scrollbar personalizat pentru descriere */
+.description-text::-webkit-scrollbar {
+    width: 8px;
+}
+
+.description-text::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 4px;
+}
+
+.description-text::-webkit-scrollbar-thumb {
+    background: #ff9900;
+    border-radius: 4px;
+}
+
+.description-text::-webkit-scrollbar-thumb:hover {
+    background: #ff6600;
+}
+
+/* Warning pentru utilizatori neautentificați */
+.grill-modal-warning {
+    margin-bottom: 20px;
+    padding: 12px 16px;
+    background: #fff3cd;
+    color: #856404;
+    border-radius: 8px;
+    border: 1px solid #ffeeba;
+    font-size: 0.9rem;
+    text-align: center;
+    font-weight: 500;
+}
+
+/* Butoane acțiuni */
+.grill-modal-actions {
+    display: flex;
+    gap: 12px;
+    padding-top: 20px;
+    border-top: 1px solid #e0e0e0;
+}
+
+/* Buton principal MIC - portocaliu */
+.grill-btn-primary {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 14px 24px;
+    background: linear-gradient(135deg, #ff9900 0%, #ff6600 100%);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    box-shadow: 0 4px 12px rgba(255, 153, 0, 0.3);
+}
+
+.grill-btn-primary:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(255, 153, 0, 0.4);
+}
+
+.grill-btn-primary:active:not(:disabled) {
+    transform: translateY(0);
+}
+
+.grill-btn-primary.liked {
+    background: linear-gradient(135deg, #28a745 0%, #218838 100%);
+    box-shadow: 0 4px 12px rgba(40, 167, 69, 0.3);
+}
+
+.grill-btn-primary.liked:hover:not(:disabled) {
+    box-shadow: 0 6px 20px rgba(40, 167, 69, 0.4);
+}
+
+.grill-btn-primary:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.btn-icon {
+    font-size: 1.3rem;
+}
+
+.btn-text {
+    font-size: 1rem;
+}
+
+/* Buton secundar Close */
+.grill-btn-secondary {
+    padding: 14px 24px;
+    background: white;
+    color: #555;
+    border: 2px solid #e0e0e0;
+    border-radius: 10px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.grill-btn-secondary:hover {
+    border-color: #999;
+    color: #333;
+    background: #f8f9fa;
+}
+
+/* ============================================
+   Responsive Design - Tablet și Mobile
+   ============================================ */
+
+/* Tablet (< 900px) */
+@media screen and (max-width: 900px) {
+    .grill-modal-panel {
+        width: 95vw;
+    }
+
+    .grill-modal-content {
+        flex-direction: column;
+        max-height: 85vh;
+    }
+
+    .grill-modal-left {
+        flex: 0 0 300px;
+        min-height: 300px;
+    }
+
+    .grill-modal-right {
+        padding: 30px;
+    }
+
+    .grill-modal-title {
+        font-size: 1.6rem;
+    }
+
+    .description-text {
+        max-height: 150px;
+    }
+}
+
+/* Mobile (< 600px) */
+@media screen and (max-width: 600px) {
+    .grill-modal-overlay {
+        padding: 10px;
+    }
+
+    .grill-modal-panel {
+        width: 100%;
+        max-width: 100%;
+        max-height: 95vh;
+        border-radius: 12px;
+    }
+
+    .grill-modal-left {
+        flex: 0 0 250px;
+        min-height: 250px;
+    }
+
+    .grill-modal-right {
+        padding: 20px;
+    }
+
+    .grill-modal-title {
+        font-size: 1.4rem;
+        margin-bottom: 16px;
+    }
+
+    .grill-modal-info {
+        padding: 16px;
+        margin-bottom: 20px;
+    }
+
+    .description-text {
+        max-height: 120px;
+        font-size: 0.9rem;
+    }
+
+    .grill-modal-actions {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .grill-btn-primary,
+    .grill-btn-secondary {
+        width: 100%;
+    }
+
+    .grill-modal-close {
+        width: 36px;
+        height: 36px;
+        font-size: 24px;
+        top: 12px;
+        right: 12px;
+    }
+}

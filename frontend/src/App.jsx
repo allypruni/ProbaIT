@@ -3,7 +3,6 @@ import './App.css';
 
 // Importăm paginile și componentele
 import Navbar from './components/Navbar';
-import Footer from './components/Footer';
 import Homepage from './pages/Homepage';
 import LoginPage from './pages/LoginPage';
 import RegisterPage from './pages/RegisterPage';
@@ -34,8 +33,6 @@ function App() {
             } 
           />
         </Routes>
-
-        <Footer />
       </div>
     </BrowserRouter>
   );

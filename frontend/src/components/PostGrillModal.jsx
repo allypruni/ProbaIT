@@ -13,6 +13,7 @@ function PostGrillModal({ isOpen, onClose, onCreated }) {
         description: '',
         imageUrl: ''
     });
+    const [imagePreview, setImagePreview] = useState('');
     const [submitting, setSubmitting] = useState(false);
     const [error, setError] = useState('');
 
@@ -26,6 +27,52 @@ function PostGrillModal({ isOpen, onClose, onCreated }) {
             [name]: value
         }));
         setError('');
+    };
+
+    // Handler pentru încărcarea imaginii
+    const handleImageChange = (e) => {
+        const file = e.target.files[0];
+        if (!file) return;
+
+        // Verifică tipul fișierului
+        if (!file.type.startsWith('image/')) {
+            setError('Te rog selectează o imagine validă (JPG, PNG, GIF)');
+            return;
+        }
+
+        // Verifică dimensiunea (max 5MB)
+        if (file.size > 5 * 1024 * 1024) {
+            setError('Imaginea este prea mare. Dimensiunea maximă este 5MB');
+            return;
+        }
+
+        // Convertește imaginea în base64
+        const reader = new FileReader();
+        reader.onloadend = () => {
+            const base64String = reader.result;
+            setFormData(prev => ({
+                ...prev,
+                imageUrl: base64String
+            }));
+            setImagePreview(base64String);
+            setError('');
+        };
+        reader.onerror = () => {
+            setError('Eroare la încărcarea imaginii');
+        };
+        reader.readAsDataURL(file);
+    };
+
+    // Șterge imaginea
+    const handleRemoveImage = () => {
+        setFormData(prev => ({
+            ...prev,
+            imageUrl: ''
+        }));
+        setImagePreview('');
+        // Resetează input-ul de file
+        const fileInput = document.getElementById('imageFile');
+        if (fileInput) fileInput.value = '';
     };
 
     const handleSubmit = async (e) => {
@@ -114,16 +161,39 @@ function PostGrillModal({ isOpen, onClose, onCreated }) {
                     </div>
 
                     <div className="form-group">
-                        <label htmlFor="imageUrl">URL Imagine (opțional)</label>
+                        <label htmlFor="imageFile">Imagine (opțional)</label>
                         <input
-                            type="text"
-                            id="imageUrl"
-                            name="imageUrl"
-                            placeholder="https://example.com/imagine.jpg"
-                            value={formData.imageUrl}
-                            onChange={handleChange}
+                            type="file"
+                            id="imageFile"
+                            accept="image/*"
+                            onChange={handleImageChange}
                             disabled={submitting}
+                            style={{ display: 'none' }}
                         />
+                        <button
+                            type="button"
+                            className="btn-upload"
+                            onClick={() => document.getElementById('imageFile').click()}
+                            disabled={submitting}
+                        >
+                            📷 Alege o imagine
+                        </button>
+                        {imagePreview && (
+                            <div className="image-preview-container">
+                                <img src={imagePreview} alt="Preview" className="image-preview" />
+                                <button
+                                    type="button"
+                                    className="btn-remove-image"
+                                    onClick={handleRemoveImage}
+                                    disabled={submitting}
+                                >
+                                    ✕ Șterge imaginea
+                                </button>
+                            </div>
+                        )}
+                        <small style={{ display: 'block', marginTop: '8px', color: '#666' }}>
+                            Max 5MB - JPG, PNG, GIF
+                        </small>
                     </div>
 
                     {error && (

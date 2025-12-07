@@ -1,9 +1,11 @@
-import { useState } from 'react'
+import './Footer.css'
 
 function Footer() {
     return (
-        <footer>
-            <p>Contact: liga@ac.tuiasi.ro</p>
+        <footer className="footer">
+            <div className="footer-content">
+                <img src="/footer-contact.png.png" alt="Contact și Social Media" className="footer-image" />
+            </div>
         </footer>
     )
 }

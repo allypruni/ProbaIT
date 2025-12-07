@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
+import './LoginPage.css';
 
 function RegisterPage() {
     const navigate = useNavigate();
@@ -74,151 +75,96 @@ function RegisterPage() {
     const displayError = localError || error;
 
     return (
-        <div style={{ maxWidth: '400px', margin: '40px auto', padding: '20px' }}>
-            <h1>📝 Înregistrare</h1>
-            
-            <form onSubmit={handleSubmit}>
-                <div style={{ marginBottom: '15px' }}>
-                    <label htmlFor="name" style={{ display: 'block', marginBottom: '5px' }}>
-                        Nume *
-                    </label>
-                    <input
-                        type="text"
-                        id="name"
-                        name="name"
-                        placeholder="Numele tău"
-                        value={formData.name}
-                        onChange={handleChange}
-                        disabled={loading}
-                        style={{ 
-                            width: '100%', 
-                            padding: '10px', 
-                            borderRadius: '4px',
-                            border: '1px solid #ccc'
-                        }}
-                    />
-                </div>
-
-                <div style={{ marginBottom: '15px' }}>
-                    <label htmlFor="email" style={{ display: 'block', marginBottom: '5px' }}>
-                        Email *
-                    </label>
-                    <input
-                        type="email"
-                        id="email"
-                        name="email"
-                        placeholder="Adresa ta de email"
-                        value={formData.email}
-                        onChange={handleChange}
-                        disabled={loading}
-                        style={{ 
-                            width: '100%', 
-                            padding: '10px', 
-                            borderRadius: '4px',
-                            border: '1px solid #ccc'
-                        }}
-                    />
-                </div>
-
-                <div style={{ marginBottom: '15px' }}>
-                    <label htmlFor="phone" style={{ display: 'block', marginBottom: '5px' }}>
-                        Telefon (opțional)
-                    </label>
-                    <input
-                        type="tel"
-                        id="phone"
-                        name="phone"
-                        placeholder="Numărul tău de telefon"
-                        value={formData.phone}
-                        onChange={handleChange}
-                        disabled={loading}
-                        style={{ 
-                            width: '100%', 
-                            padding: '10px', 
-                            borderRadius: '4px',
-                            border: '1px solid #ccc'
-                        }}
-                    />
-                </div>
-
-                <div style={{ marginBottom: '15px' }}>
-                    <label htmlFor="password" style={{ display: 'block', marginBottom: '5px' }}>
-                        Parolă * (minim 6 caractere)
-                    </label>
-                    <input
-                        type="password"
-                        id="password"
-                        name="password"
-                        placeholder="Alege o parolă"
-                        value={formData.password}
-                        onChange={handleChange}
-                        disabled={loading}
-                        style={{ 
-                            width: '100%', 
-                            padding: '10px', 
-                            borderRadius: '4px',
-                            border: '1px solid #ccc'
-                        }}
-                    />
-                </div>
-
-                <div style={{ marginBottom: '15px' }}>
-                    <label htmlFor="confirmPassword" style={{ display: 'block', marginBottom: '5px' }}>
-                        Confirmă parola *
-                    </label>
-                    <input
-                        type="password"
-                        id="confirmPassword"
-                        name="confirmPassword"
-                        placeholder="Repetă parola"
-                        value={formData.confirmPassword}
-                        onChange={handleChange}
-                        disabled={loading}
-                        style={{ 
-                            width: '100%', 
-                            padding: '10px', 
-                            borderRadius: '4px',
-                            border: '1px solid #ccc'
-                        }}
-                    />
-                </div>
-
-                {displayError && (
-                    <div style={{ 
-                        color: '#dc3545', 
-                        backgroundColor: '#f8d7da', 
-                        padding: '10px', 
-                        borderRadius: '4px',
-                        marginBottom: '15px'
-                    }}>
-                        {displayError}
+        <div className="auth-page">
+            <div className="auth-container">
+                <h1 className="auth-title">📝 Înregistrare</h1>
+                
+                <form onSubmit={handleSubmit} className="auth-form">
+                    <div className="form-group">
+                        <label htmlFor="name">Nume *</label>
+                        <input
+                            type="text"
+                            id="name"
+                            name="name"
+                            placeholder="Numele tău"
+                            value={formData.name}
+                            onChange={handleChange}
+                            disabled={loading}
+                        />
                     </div>
-                )}
 
-                <button 
-                    type="submit" 
-                    disabled={loading}
-                    style={{ 
-                        width: '100%', 
-                        padding: '12px',
-                        backgroundColor: loading ? '#6c757d' : '#28a745',
-                        color: 'white',
-                        border: 'none',
-                        borderRadius: '4px',
-                        cursor: loading ? 'not-allowed' : 'pointer',
-                        fontSize: '16px'
-                    }}
-                >
-                    {loading ? 'Se creează contul...' : 'Creează cont'}
-                </button>
-            </form>
+                    <div className="form-group">
+                        <label htmlFor="email">Email *</label>
+                        <input
+                            type="email"
+                            id="email"
+                            name="email"
+                            placeholder="Adresa ta de email"
+                            value={formData.email}
+                            onChange={handleChange}
+                            disabled={loading}
+                        />
+                    </div>
 
-            <p style={{ marginTop: '20px', textAlign: 'center' }}>
-                Ai deja cont?{' '}
-                <Link to="/login" style={{ color: '#007bff' }}>
-                    Autentifică-te
-                </Link>
-            </p>
+                    <div className="form-group">
+                        <label htmlFor="phone">Telefon (opțional)</label>
+                        <input
+                            type="tel"
+                            id="phone"
+                            name="phone"
+                            placeholder="Numărul tău de telefon"
+                            value={formData.phone}
+                            onChange={handleChange}
+                            disabled={loading}
+                        />
+                    </div>
+
+                    <div className="form-group">
+                        <label htmlFor="password">Parolă * (minim 6 caractere)</label>
+                        <input
+                            type="password"
+                            id="password"
+                            name="password"
+                            placeholder="Alege o parolă"
+                            value={formData.password}
+                            onChange={handleChange}
+                            disabled={loading}
+                        />
+                    </div>
+
+                    <div className="form-group">
+                        <label htmlFor="confirmPassword">Confirmă parola *</label>
+                        <input
+                            type="password"
+                            id="confirmPassword"
+                            name="confirmPassword"
+                            placeholder="Repetă parola"
+                            value={formData.confirmPassword}
+                            onChange={handleChange}
+                            disabled={loading}
+                        />
+                    </div>
+
+                    {displayError && (
+                        <div className="auth-error">
+                            {displayError}
+                        </div>
+                    )}
+
+                    <button 
+                        type="submit" 
+                        disabled={loading}
+                        className="auth-submit"
+                    >
+                        {loading ? 'Se creează contul...' : 'Creează cont'}
+                    </button>
+                </form>
+
+                <p className="auth-link">
+                    Ai deja cont?{' '}
+                    <Link to="/login">Autentifică-te</Link>
+                </p>
+            </div>
         </div>
     );
 }

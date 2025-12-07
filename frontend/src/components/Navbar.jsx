@@ -16,7 +16,7 @@ function Navbar() {
         <nav className="navbar">
             <div className="navbar-logo">
                 <NavLink to="/" style={{ textDecoration: 'none', color: 'inherit' }}>
-                    <h2>🔥 Pimp Your Grill</h2>
+                    <img src="/logo.png.png" alt="Pimp Your Grill" className="navbar-logo-img" />
                 </NavLink>
             </div>
             <ul className="navbar-links">
