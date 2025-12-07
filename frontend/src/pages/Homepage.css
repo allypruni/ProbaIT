@@ -1,0 +1,191 @@
+/* === Homepage – Figma style === */
+
+:root {
+  --pg-brown: #4a1f0f;
+  --pg-brown-light: #f5e3d5;
+  --pg-orange: #f4a261;
+  --pg-bg: #fffdf8;
+}
+
+.home {
+  min-height: calc(100vh - 70px);
+  background-color: var(--pg-bg);
+  display: flex;
+  justify-content: center;
+}
+
+.home-hero {
+  width: 100%;
+  max-width: 1200px;
+  margin-top: 40px;
+  margin-bottom: 40px;
+  background-color: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border: 4px solid var(--pg-brown);
+}
+
+/* Banda de sus, text informativ */
+.home-hero-top-strip {
+  background-color: var(--pg-brown);
+  color: #ffffff;
+  padding: 10px 24px;
+  font-size: 15px;
+  font-weight: 500;
+}
+
+/* Conținut principal: ilustrații stânga/dreapta + card central */
+.home-hero-content {
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+  align-items: center;
+  padding: 32px 40px 40px 40px;
+  background-image: radial-gradient(circle at 20% 20%, #fbeadf 0, transparent 55%),
+    radial-gradient(circle at 80% 10%, #fbeadf 0, transparent 55%);
+}
+
+/* Ilustrații laterale (simulăm cu emoji) */
+.home-hero-illustrations {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  align-items: center;
+  justify-content: center;
+  font-size: 34px;
+  opacity: 0.9;
+  color: var(--pg-brown);
+}
+
+.home-hero-illustrations span {
+  filter: drop-shadow(0 2px 3px rgba(0, 0, 0, 0.1));
+}
+
+/* Cardul central */
+.home-hero-center {
+  text-align: center;
+  padding: 24px 32px;
+  background-color: #ffffff;
+  border-radius: 16px;
+  border: 3px solid var(--pg-brown-light);
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.08);
+}
+
+.home-title {
+  margin: 0 0 14px;
+  font-size: 40px;
+  font-weight: 800;
+  letter-spacing: 1px;
+  color: var(--pg-brown);
+}
+
+.home-subtitle {
+  margin: 0 auto 24px;
+  max-width: 520px;
+  font-size: 16px;
+  line-height: 1.6;
+  color: #444444;
+}
+
+/* Butoane CTA */
+.home-cta-row {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.home-cta-primary,
+.home-cta-secondary {
+  text-decoration: none;
+  border-radius: 999px;
+  padding: 10px 24px;
+  font-size: 15px;
+  font-weight: 600;
+  border: 2px solid transparent;
+  transition: 0.2s ease;
+}
+
+.home-cta-primary {
+  background-color: var(--pg-orange);
+  color: var(--pg-brown);
+  border-color: var(--pg-orange);
+}
+
+.home-cta-primary:hover {
+  background-color: #ffffff;
+  color: var(--pg-brown);
+}
+
+.home-cta-secondary {
+  background-color: #ffffff;
+  color: var(--pg-brown);
+  border-color: var(--pg-brown);
+}
+
+.home-cta-secondary:hover {
+  background-color: var(--pg-brown);
+  color: #ffffff;
+}
+
+/* Banda de jos cu contact + social */
+.home-hero-bottom-strip {
+  background-color: var(--pg-brown);
+  color: #ffffff;
+  padding: 10px 24px;
+}
+
+.home-bottom-inner {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  font-size: 14px;
+}
+
+.home-bottom-label {
+  font-weight: 600;
+}
+
+.home-bottom-link {
+  color: #ffffff;
+  text-decoration: underline;
+}
+
+.home-bottom-link:hover {
+  text-decoration: none;
+}
+
+.home-bottom-separator {
+  opacity: 0.6;
+}
+
+.home-bottom-socials {
+  display: inline-flex;
+  gap: 6px;
+  font-size: 18px;
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+  .home-hero {
+    margin-inline: 16px;
+  }
+
+  .home-hero-content {
+    grid-template-columns: 1fr;
+    row-gap: 24px;
+    padding: 24px 20px 28px 20px;
+  }
+
+  .home-hero-illustrations-left,
+  .home-hero-illustrations-right {
+    flex-direction: row;
+  }
+
+  .home-title {
+    font-size: 32px;
+  }
+}

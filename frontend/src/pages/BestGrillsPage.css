@@ -1,0 +1,455 @@
+/* ============================================
+   Best Grills Page Styles
+   ============================================ */
+
+.best-grills-page {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.best-grills-page h1 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 30px;
+    font-size: 2.5rem;
+}
+
+/* Search & Sort Section */
+.search-sort-section {
+    background: #f8f9fa;
+    padding: 20px;
+    border-radius: 12px;
+    margin-bottom: 30px;
+}
+
+.search-form {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.search-form input {
+    flex: 1;
+    padding: 12px 16px;
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: border-color 0.2s;
+}
+
+.search-form input:focus {
+    outline: none;
+    border-color: #ff9900;
+}
+
+.search-form button {
+    padding: 12px 24px;
+    background: linear-gradient(135deg, #ff9900 0%, #ff6600 100%);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.search-form button:hover {
+    transform: translateY(-2px);
+}
+
+.sort-buttons {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.sort-buttons span {
+    color: #666;
+    font-weight: 500;
+}
+
+.sort-btn {
+    padding: 8px 16px;
+    border: 2px solid #e0e0e0;
+    background: white;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.2s;
+    font-weight: 500;
+}
+
+.sort-btn:hover {
+    border-color: #ff9900;
+}
+
+.sort-btn.active {
+    background: #ff9900;
+    border-color: #ff9900;
+    color: white;
+}
+
+/* Main Content Layout */
+.best-grills-content {
+    display: grid;
+    grid-template-columns: 1fr 350px;
+    gap: 30px;
+}
+
+/* Grills for Pimps Section */
+.grills-for-pimps {
+    min-height: 400px;
+}
+
+.grills-for-pimps h2 {
+    color: #333;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 3px solid #ff9900;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.grills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 20px;
+}
+
+/* Leaderboard Section */
+.leaderboard-section {
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+    padding: 20px;
+    border-radius: 12px;
+    height: fit-content;
+    position: sticky;
+    top: 20px;
+}
+
+.leaderboard-section h2 {
+    color: #ffd700;
+    margin: 0 0 20px 0;
+    text-align: center;
+    font-size: 1.3rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.leaderboard-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* Leaderboard Card - mai compact */
+.leaderboard-card {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    padding: 15px;
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    cursor: pointer;
+    transition: transform 0.2s, background 0.2s;
+}
+
+.leaderboard-card:hover {
+    transform: translateX(5px);
+    background: rgba(255, 255, 255, 0.15);
+}
+
+.leaderboard-rank {
+    font-size: 1.5rem;
+    font-weight: bold;
+    min-width: 40px;
+    text-align: center;
+}
+
+.leaderboard-rank.gold { color: #ffd700; }
+.leaderboard-rank.silver { color: #c0c0c0; }
+.leaderboard-rank.bronze { color: #cd7f32; }
+
+.leaderboard-info {
+    flex: 1;
+    min-width: 0;
+}
+
+.leaderboard-title {
+    color: white;
+    font-weight: bold;
+    font-size: 0.95rem;
+    margin-bottom: 4px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.leaderboard-owner {
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 0.8rem;
+}
+
+.leaderboard-likes {
+    color: #ff9900;
+    font-weight: bold;
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+/* Loading / Error / Empty States */
+.loading-state,
+.error-state,
+.empty-state {
+    text-align: center;
+    padding: 40px;
+    color: #666;
+}
+
+.error-state {
+    background: #f8d7da;
+    color: #721c24;
+    border-radius: 8px;
+}
+
+.empty-state {
+    background: #f8f9fa;
+    border-radius: 8px;
+    border: 2px dashed #dee2e6;
+}
+
+/* GrillCard Like Styling Updates */
+.grill-card-likes.liked {
+    color: #28a745;
+    background: rgba(40, 167, 69, 0.1);
+    padding: 4px 8px;
+    border-radius: 4px;
+}
+
+.grill-card-likes.clickable:hover {
+    background: rgba(255, 153, 0, 0.1);
+}
+
+.grill-card-likes .like-action {
+    margin-left: 4px;
+    font-size: 0.85rem;
+}
+
+.grill-card-clickable:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 30px rgba(0,0,0,0.2);
+}
+
+/* ============================================
+   Grill Details Modal Styles
+   ============================================ */
+
+.grill-details-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    padding: 20px;
+}
+
+.grill-details-modal {
+    background: white;
+    border-radius: 16px;
+    width: 100%;
+    max-width: 600px;
+    max-height: 90vh;
+    overflow-y: auto;
+    box-shadow: 0 25px 80px rgba(0,0,0,0.4);
+}
+
+.grill-details-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    border-bottom: 1px solid #eee;
+}
+
+.grill-details-header h2 {
+    margin: 0;
+    color: #333;
+}
+
+.grill-details-image {
+    height: 250px;
+    background: #f0f0f0;
+    overflow: hidden;
+}
+
+.grill-details-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.grill-details-placeholder {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 5rem;
+    background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+}
+
+.grill-details-content {
+    padding: 25px;
+}
+
+.grill-details-title {
+    margin: 0 0 10px 0;
+    color: #333;
+    font-size: 1.8rem;
+}
+
+.grill-details-owner {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #666;
+    margin-bottom: 20px;
+}
+
+.grill-details-description {
+    margin-bottom: 25px;
+}
+
+.grill-details-description h3 {
+    margin: 0 0 10px 0;
+    color: #333;
+    font-size: 1rem;
+}
+
+.grill-details-description p {
+    color: #555;
+    line-height: 1.6;
+    margin: 0;
+}
+
+.grill-details-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 20px;
+    border-top: 1px solid #eee;
+}
+
+.mic-button {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 20px;
+    background: linear-gradient(135deg, #ff9900 0%, #ff6600 100%);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.mic-button:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(255, 153, 0, 0.4);
+}
+
+.mic-button.liked {
+    background: linear-gradient(135deg, #28a745 0%, #218838 100%);
+}
+
+.mic-button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.mic-button .mic-icon {
+    font-size: 1.2rem;
+}
+
+.mic-button .mic-count {
+    font-size: 1.1rem;
+}
+
+.grill-details-date {
+    color: #888;
+    font-size: 0.9rem;
+}
+
+.auth-warning {
+    margin-top: 15px;
+    padding: 10px;
+    background: #fff3cd;
+    color: #856404;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    text-align: center;
+}
+
+/* ============================================
+   Responsive Design
+   ============================================ */
+
+@media screen and (max-width: 1100px) {
+    .best-grills-content {
+        grid-template-columns: 1fr;
+    }
+    
+    .leaderboard-section {
+        position: static;
+        order: -1; /* Pune leaderboard-ul în top pe mobil */
+    }
+    
+    .leaderboard-list {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 10px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .best-grills-page {
+        padding: 10px;
+    }
+    
+    .best-grills-page h1 {
+        font-size: 1.8rem;
+    }
+    
+    .search-form {
+        flex-direction: column;
+    }
+    
+    .sort-buttons {
+        flex-wrap: wrap;
+    }
+    
+    .leaderboard-list {
+        grid-template-columns: 1fr;
+    }
+    
+    .grills-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .grill-details-modal {
+        margin: 10px;
+    }
+    
+    .grill-details-footer {
+        flex-direction: column;
+        gap: 15px;
+    }
+}

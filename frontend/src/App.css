@@ -1,0 +1,59 @@
+#root {
+  width: 100%;       /* Ocupă toată lățimea ecranului */
+  margin: 0;         /* Eliminăm centrarea forțată */
+  padding: 0;        /* Eliminăm spațiul gol din jur. Navbar-ul va atinge marginile */
+  text-align: left;  /* Textul se aliniază normal, la stânga */
+  /*max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+  */
+}
+
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+}
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em #61dafbaa);
+}
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+.card {
+  padding: 2em;
+}
+
+.read-the-docs {
+  color: #888;
+}
+/* --- REGULI PENTRU TELEFON (Mobil) --- */
+/* Se activează DOAR dacă ecranul e mai mic de 768 pixeli */
+@media screen and (max-width: 768px) {
+  
+  /* Exemplu: Pe telefon vrem textul puțin mai mic */
+  body {
+    font-size: 14px; 
+  }
+
+  /* Exemplu: Navbar-ul pe telefon ar putea fi o listă verticală */
+  /* Vom detalia asta în Navbar.css, dar principiul e același */
+}
