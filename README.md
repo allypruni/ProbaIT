@@ -13,8 +13,8 @@ Frontend: React + Vite
 
 ### 1. Clonează proiectul
 
-    git clone https://github.com/<USERNAME>/pimp-your-grill
-    cd pimp-your-grill
+    git clone https://github.com/allypruni/ProbaIT.git
+    cd ProbaIT
 
 ### 2. Backend
 
